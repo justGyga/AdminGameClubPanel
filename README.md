@@ -1,14 +1,25 @@
-# Template core for start-up backend application
+# It's my test project
+I created and am developing this back-end test project to test my level of knowledge and readiness to work in Leam.
 
-## install:
-### base
-npm i argon2 auto-bind cors express jsonwebtoken lodash nodemailer nodemailer-express-handlebars passport passport-jwt pg sequelize swagger-jsdoc swagger-ui-express yup
+# Libraries
+- express
+- sequelize
+- lodash
+- yup
+- jsonwebtoken
+- pg
+- auto-bind
 
-### uploading files
-npm i express-fileupload
-
-### if need yup-phone use:
-npm i yup@^0.32.11
-
-### no-sql and msg broker
-npm i redis amqplib mongoose
+# Tasks
+## Task 1
+- [x] create a structure:
+    ├── .github             # GitHub folder
+    ├── .vscode             # VScode settings folder
+    ├── core                # Folder with main components
+    ├── documents           # Documentation for Front-end
+    ├── modules             # Moduls folder
+    ├── node-modules        # Dependences files
+    ├── main.json           # Main dapendences
+    ├── package.json        # Package dapendences
+    └── README.md
+- [x] Create Git Repo
