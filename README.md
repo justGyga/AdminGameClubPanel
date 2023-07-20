@@ -13,14 +13,14 @@ I created and am developing this back-end test project to test my level of knowl
 # Tasks
 ## Task 1
 - [x] create a structure:
-    ├── .github             # GitHub folder
-    ├── .vscode             # VScode settings folder
-    ├── core                # Folder with main components
-    ├── documents           # Documentation for Front-end
-    ├── modules             # Moduls folder
-    ├── node-modules        # Dependences files
-    ├── main.json           # Main dapendences
-    ├── package.json        # Package dapendences
+    ├── .github             # GitHub folder \
+    ├── .vscode             # VScode settings folder \
+    ├── core                # Folder with main components \
+    ├── documents           # Documentation for Front-end \
+    ├── modules             # Modules folder \
+    ├── node-modules        # Dependencies files\
+    ├── main.json           # Main dependencies \
+    ├── package.json        # Package dependencies \
     └── README.md
 - [x] Create Git Repository
 - [ ] User
