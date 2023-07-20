@@ -7,6 +7,7 @@ import ROUTER from "./modules/router.js";
 
 const APP_PORT = process.env.PORT || 7001;
 const GLOBAL_PREFIX = process.env.PREFIX || "";
+
 new Server(APP_PORT, [
     new DatabaseAdapter(
         new Sequelize(process.env.DB_NAME, process.env.PG_USER, process.env.PG_PASS, {
