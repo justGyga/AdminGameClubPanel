@@ -1,37 +1,13 @@
 import { Sequelize } from "sequelize";
-import MongoAdapter from "./core/database/mongo-adapter.js";
 import DatabaseAdapter from "./core/database/postgresql-adapter.js";
-import RedisAdapter from "./core/database/redis-adapter.js";
-import PassportModule from "./core/passport.js";
-import QueueModule from "./core/queue.js";
 import Routing from "./core/routes.js";
 import Server from "./core/server.js";
 import SwaggerDoc from "./core/swagger.js";
-import AuthModels from "./modules/auth/models/_index.js";
-import AuthRouter from "./modules/auth/router.js";
-import { PassportJwt } from "./modules/guards/jwt.js";
+import ROUTER from "./modules/router.js";
 
 const APP_PORT = process.env.PORT || 7001;
 const GLOBAL_PREFIX = process.env.PREFIX || "";
 new Server(APP_PORT, [
-    new RedisAdapter({
-        host: process.env.RD_HOST,
-        password: process.env.RD_PASS
-    }),
-    new MongoAdapter({
-        database: process.env.DB_NAME,
-        host: process.env.MG_HOST,
-        login: process.env.MG_USER,
-        password: process.env.MG_PASS,
-        port: process.env.MG_PORT
-    }),
-    new QueueModule({
-        host: process.env.Q_HOST,
-        login: process.env.Q_LOGIN,
-        password: process.env.Q_PASS
-    })
-        .registryQueues([])
-        .registryListeners([]),
     new DatabaseAdapter(
         new Sequelize(process.env.DB_NAME, process.env.PG_USER, process.env.PG_PASS, {
             dialect: "postgres",
@@ -41,9 +17,8 @@ new Server(APP_PORT, [
             query: { raw: true, nest: true },
             sync: { alter: true }
         })
-    ).registerModels([...AuthModels]),
-    new Routing(GLOBAL_PREFIX, [{ router: AuthRouter, prefix: "/auth" }]),
-    new PassportModule([{ name: "jwt", strategy: PassportJwt() }]),
+    ),
+    new Routing(GLOBAL_PREFIX, [{ router: ROUTER }]),
     new SwaggerDoc({
         definition: {
             openapi: "3.0.0",

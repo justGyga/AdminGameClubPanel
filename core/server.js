@@ -1,7 +1,6 @@
-/* eslint-disable no-empty-function */
 /* eslint-disable max-classes-per-file */
-import cors from "cors";
 import express from "express";
+import cors from "cors";
 import fileUpload from "express-fileupload";
 
 const TIMEOUT = 1000 * 60 * 10; // 10m

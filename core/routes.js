@@ -1,9 +1,9 @@
-import { Router as ExpressRouter } from "express";
 import { BaseModule } from "./server.js";
+import { Router as ExpressRouter } from "express";
 
 export default class Routing extends BaseModule {
-    #mainRouter;
-    #globalPrefix;
+    #mainRouter
+    #globalPrefix
 
     constructor(globalPrefix, routers = []) {
         super();

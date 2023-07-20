@@ -22,4 +22,52 @@ I created and am developing this back-end test project to test my level of knowl
     ├── main.json           # Main dapendences
     ├── package.json        # Package dapendences
     └── README.md
-- [x] Create Git Repo
+- [x] Create Git Repository
+- [ ] User
+    - [ ] Model (Id, Login, Password)
+    - [ ] Service
+    - [ ] Controller
+        - [ ] Login
+        - [ ] Authorization
+        - [ ] Change company Name
+        - [ ] Delete company
+    - [ ] JWT (exc: login and up)
+
+- [ ] Company
+    - [ ] Model (Id, Login, Password, CompanyName)
+    - [ ] Service
+    - [ ] Controller
+        - [ ] Create
+        - [ ] Authorization
+        - [ ] Change company Name
+        - [ ] Delete company
+        - [ ] Look company session
+    - [ ] JWT (exc: login and up)
+
+- [ ] Game
+    - [ ] Model (Id, GameName, Description, Image, Min and Max numbers of users)
+    - [ ] Service
+    - [ ] Controller
+        - [ ] Add game
+        - [ ] Change game name
+        - [ ] Delete image
+        - [ ] Get all games (with pages)
+        - [ ] Get one game by Id
+    - [ ] JWT (exc: login and up)
+
+- [ ] Session
+    - [ ] Model (Id, Company Id, Duration, Date, Game Id, Users number)
+    - [ ] Service
+    - [ ] Controller
+        - [ ] Add game
+        - [ ] Change game name
+        - [ ] Delete image
+        - [ ] Get all games (with pages)
+        - [ ] Get one game by Id
+    - [ ] JWT (exc: login and up)
+
+
+### Commands
+- Use ```npm i``` to install all packages
+- Use ```npm start``` to start
+- Use ```npm run dev``` if you edit code
