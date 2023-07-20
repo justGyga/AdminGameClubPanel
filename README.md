@@ -12,7 +12,7 @@ I created and am developing this back-end test project to test my level of knowl
 
 # Tasks
 ## Task 1
-- [x] create a structure:
+- [x] create a structure: \
     ├── .github             # GitHub folder \
     ├── .vscode             # VScode settings folder \
     ├── core                # Folder with main components \
