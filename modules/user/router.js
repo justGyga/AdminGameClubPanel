@@ -1,9 +1,11 @@
 import Router from "express";
+import UserController from "./controller.js";
 
 const router = new Router();
 
-router.get("", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
+router.post("/registration", UserController.registration);
+router.post("/authorization", UserController.login);
+router.post("/profile/edit");
+router.post("/profile/delete");
 
 export default router;

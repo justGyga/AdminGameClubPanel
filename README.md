@@ -24,13 +24,13 @@ I created and am developing this back-end test project to test my level of knowl
     └── README.md
 - [x] Create Git Repository
 - [ ] User
-    - [ ] Model (Id, Login, Password)
-    - [ ] Service
-    - [ ] Controller
-        - [ ] Login
-        - [ ] Authorization
-        - [ ] Change company Name
-        - [ ] Delete company
+    - [x] Model (Id, Login, Password)
+    - [x] Service
+    - [x] Controller
+        - [x] Registration
+        - [x] Authorization
+        - [x] Change login
+        - [x] Delete user
     - [ ] JWT (exc: login and up)
 
 - [ ] Company
