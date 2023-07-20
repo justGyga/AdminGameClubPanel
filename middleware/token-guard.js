@@ -16,7 +16,7 @@ export class TokenGuard {
             req.user = payload;
             next();
         } catch (error) {
-            res.status(401).json({ message: "Токен не действителен" });
+            res.status(401).json({ message: "Token can not be validate" });
         }
     };
 

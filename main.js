@@ -3,7 +3,11 @@ import DatabaseAdapter from "./core/database/postgresql-adapter.js";
 import Routing from "./core/routes.js";
 import Server from "./core/server.js";
 import SwaggerDoc from "./core/swagger.js";
-import ROUTER from "./modules/router.js";
+import modelsArray from "./modules/models/_index.js"
+import userRouter from "./modules/user/router.js";
+import companyRouter from "./modules/company/router.js";
+import gameRouter from "./modules/game/router.js";
+import sessionRouter from "./modules/session/router.js";
 
 const APP_PORT = process.env.PORT || 7001;
 const GLOBAL_PREFIX = process.env.PREFIX || "";
@@ -18,8 +22,13 @@ new Server(APP_PORT, [
             query: { raw: true, nest: true },
             sync: { alter: true }
         })
-    ),
-    new Routing(GLOBAL_PREFIX, [{ router: ROUTER }]),
+    ).registerModels([...modelsArray]),
+    new Routing(GLOBAL_PREFIX, [
+        { router: userRouter },
+        { router: companyRouter, prefix: "/company" },
+        { router: gameRouter, prefix: "/game" },
+        { router: sessionRouter, prefix: "/session" }
+    ]),
     new SwaggerDoc({
         definition: {
             openapi: "3.0.0",
