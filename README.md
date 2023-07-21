@@ -33,7 +33,7 @@ I created and am developing this back-end test project to test my level of knowl
     - [x] JWT (exc: Auth and Reg)
 
 - [ ] Company
-    - [ ] Model (Id, Login, Password, CompanyName)
+    - [x] Model (Id, Login, Password, CompanyName)
     - [ ] Service
     - [ ] Controller
         - [ ] Create

@@ -23,7 +23,7 @@ new Server(APP_PORT, [
         })
     ).registerModels([...modelsList]),
     new Routing(GLOBAL_PREFIX, [
-        { router: userRouter },
+        { router: userRouter , prefix: "/user"},
         { router: companyRouter, prefix: "/company" },
         { router: gameRouter, prefix: "/game" },
         { router: sessionRouter, prefix: "/session" }
