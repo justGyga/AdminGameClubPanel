@@ -12,9 +12,7 @@ class UserController {
     async registration(req, res) {
         try {
             const result = await this.#userService.createUser(req.body);
-            if (result) {
-                return res.status(201).json(result);
-            }
+            if (result) return res.status(201).json(result);
             res.status(409).json({ message: `User ${req.body.login} already exist` });
         } catch (error) {
             console.log(error.message);
@@ -35,7 +33,7 @@ class UserController {
 
     async edit(req, res) {
         try {
-            const result = await this.#userService.editLogin({ userId: req.user.id, newLogin });
+            await this.#userService.editLogin({ userId: req.user.id, newLogin: req.body.newLogin });
             res.status(200).json({ message: "Login was edited!" });
         } catch (error) {
             console.log(error.message);
@@ -44,8 +42,8 @@ class UserController {
     }
 
     async delete(req, res) {
-        await this.#userService.deleteUser(req.user.id)
-        res.status(204).send()
+        await this.#userService.deleteUser(req.user.id);
+        res.status(204).send();
     }
 }
 

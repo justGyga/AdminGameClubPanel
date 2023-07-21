@@ -22,7 +22,7 @@ I created and am developing this back-end test project to test my level of knowl
     ├── package.json        # Package dependencies \
     └── README.md
 - [x] Create Git Repository
-- [ ] User
+- [x] User
     - [x] Model (Id, Login, Password)
     - [x] Service
     - [x] Controller
@@ -30,7 +30,7 @@ I created and am developing this back-end test project to test my level of knowl
         - [x] Authorization
         - [x] Change login
         - [x] Delete user
-    - [ ] JWT (exc: login and up)
+    - [x] JWT (exc: Auth and Reg)
 
 - [ ] Company
     - [ ] Model (Id, Login, Password, CompanyName)

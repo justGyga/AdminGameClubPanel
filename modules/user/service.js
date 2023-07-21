@@ -1,12 +1,12 @@
 import User from "../models/user.js";
-import argon2, { argon2d } from "argon2";
+import argon2 from "argon2";
 import _ from "lodash";
 import { TokenGuard } from "../middleware/token-guard.js";
 import { Op } from "sequelize";
 
 export default class UserService {
     async createUser(doc) {
-        if (!(await User.count({ where: { login: { [Op.iLike]: doc.login } }, raw: true }))) {
+        if (await User.count({ where: { login: { [Op.iLike]: doc.login } }, raw: true })) {
             return false;
         }
         doc.password = await argon2.hash(doc.password);

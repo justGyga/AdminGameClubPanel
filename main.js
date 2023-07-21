@@ -3,7 +3,7 @@ import DatabaseAdapter from "./core/database/postgresql-adapter.js";
 import Routing from "./core/routes.js";
 import Server from "./core/server.js";
 import SwaggerDoc from "./core/swagger.js";
-import modelsArray from "./modules/models/_index.js"
+import modelsList from "./modules/models/_index.js"
 import userRouter from "./modules/user/router.js";
 import companyRouter from "./modules/company/router.js";
 import gameRouter from "./modules/game/router.js";
@@ -19,10 +19,9 @@ new Server(APP_PORT, [
             host: process.env.PG_HOST || "localhost",
             port: process.env.PG_PORT || 5432,
             logging: false,
-            query: { raw: true, nest: true },
             sync: { alter: true }
         })
-    ).registerModels([...modelsArray]),
+    ).registerModels([...modelsList]),
     new Routing(GLOBAL_PREFIX, [
         { router: userRouter },
         { router: companyRouter, prefix: "/company" },

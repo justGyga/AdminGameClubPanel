@@ -1,6 +1,10 @@
-import userModel from "./user.js";
-import sessionModel from "./session.js";
-import gameModel from "./game.js";
-import companyModel from "./company.js";
+import {userInitter} from "./user.js";
+// import {sessionInitter} from "./session.js";
+// import {gameInitter} from "./game.js";
+// import {companyInitter} from "./company.js";
 
-export default [userModel, sessionModel, gameModel, companyModel];
+export default [userInitter, 
+    // sessionInitter, 
+    // gameInitter, 
+    // companyInitter
+];
