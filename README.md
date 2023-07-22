@@ -34,13 +34,11 @@ I created and am developing this back-end test project to test my level of knowl
 
 - [ ] Session
     - [x] Model (Id, Company Id, Duration, Date, Game Id, Users number)
-    - [ ] Service
+    - [x] Service
     - [ ] Controller
-        - [ ] Add game
-        - [ ] Change game name
-        - [ ] Delete image
-        - [ ] Get all games (with pages)
-        - [ ] Get one game by Id
+        - [x] Add session
+        - [x] Delete image
+        - [ ] Get all sessions (with pages)
     - [ ] JWT (exc: login and up)
 
 - [ ] Company

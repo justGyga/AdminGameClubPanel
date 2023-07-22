@@ -1,6 +1,5 @@
 import User from "../models/user.js";
 import argon2 from "argon2";
-// DELETE :: import _ from "lodash";
 import { TokenGuard } from "../middleware/token-guard.js";
 import { Op } from "sequelize";
 
@@ -11,10 +10,10 @@ export default class UserService {
         }
         doc.password = await argon2.hash(doc.password);
         await User.create(doc);
-        return {message: "User was created!" };
+        return { message: "User was created!" };
     }
 
-    async loginUser(doc) {
+    async authUser(doc) {
         const userFindStatus = await User.findOne({
             where: {
                 login: { [Op.iLike]: doc.login }
@@ -22,7 +21,7 @@ export default class UserService {
             raw: true
         });
         if (!userFindStatus || !(await argon2.verify(userFindStatus.password, doc.password))) return false;
-        return await TokenGuard.generate({ id: userFindStatus.id });
+        return await TokenGuard.generate({ id: userFindStatus.id, type: "User" });
     }
 
     async editLogin(doc) {

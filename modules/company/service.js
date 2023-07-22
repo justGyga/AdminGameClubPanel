@@ -10,6 +10,36 @@ export default class CompanyService {
         }
         doc.password = await argon2.hash(doc.password);
         await Company.create(doc);
-        return {message: "Company was created!"}
+        return { message: "Company was created!" };
     }
+
+    async authCompany(doc) {
+        const companyFindStatus = await Company.findOne({
+            where: {
+                login: { [Op.iLike]: doc.login }
+            },
+            raw: true
+        });
+        if (!companyFindStatus || !(await argon2.verify(companyFindStatus.password, doc.password))) return false;
+        return await TokenGuard.generate({ id: companyFindStatus.id, type: "Company" });
+    }
+
+    async editCompanyName(doc) {
+        const companyFindStatus = await Company.findByPk(doc.companyId);
+        if (!companyFindStatus) {
+            return false;
+        }
+        if (doc.newLogin) {
+            companyFindStatus.login = doc.newLogin
+        }
+        if (doc.newName) {
+            companyFindStatus.name = doc.newName
+        }
+        return await companyFindStatus.save();
+    }
+
+    async deleteCompany(id){
+        Company.destroy({ where: { id } });
+    }
+
 }

@@ -16,33 +16,41 @@ class UserController {
             res.status(409).json({ message: `User ${req.body.login} already exist` });
         } catch (error) {
             console.log(error.message);
-            res.status(500).json({ message: "Something went wrong" });
+            res.status(500).json({ message: "Ops! Something went wrong!" });
         }
     }
 
-    async login(req, res) {
+    async authorization(req, res) {
         try {
-            const result = await this.#userService.loginUser(req.body);
-            if (!result) return res.status(404).json({ message: "Login or password isn't correct" });
+            const result = await this.#userService.authUser(req.body);
+            if (!result) {
+                return res.status(404).json({ message: "Login or password isn't correct" });
+            }
             res.status(200).json({ message: "All is correct", token: result });
         } catch (error) {
             console.log(error.message);
-            res.status(500).json({ message: "Something went wrong" });
+            res.status(500).json({ message: "Ops! Something went wrong!" });
         }
     }
 
     async edit(req, res) {
         try {
-            await this.#userService.editLogin({ userId: req.user.id, newLogin: req.body.newLogin });
+            if (req.owner.type !== "User") {
+                return res.status(401).json({ message: "Your data is not belong to any User" });
+            }
+            await this.#userService.editLogin({ userId: req.owner.id, newLogin: req.body.newLogin });
             res.status(200).json({ message: "Login was edited!" });
         } catch (error) {
             console.log(error.message);
-            res.status(500).json({ message: "Something went wrong" });
+            res.status(500).json({ message: "Ops! Something went wrong!" });
         }
     }
 
     async delete(req, res) {
-        await this.#userService.deleteUser(req.user.id);
+        if (req.owner.type !== "User") {
+            return res.status(401).json({ message: "Your data not belongs to any User" });
+        }
+        await this.#userService.deleteUser(req.owner.id);
         res.status(204).send();
     }
 }

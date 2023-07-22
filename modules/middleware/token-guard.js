@@ -13,7 +13,7 @@ export class TokenGuard {
             }
             const tokenPayload = jwt.verify(token, TOKEN_SECRET_WORD);
             const payload = _.omit(tokenPayload, "iat", "exp");
-            req.user = payload;
+            req.owner = payload;
             next();
         } catch (error) {
             res.status(401).json({ message: "Token can not be validate" });
