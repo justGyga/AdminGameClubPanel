@@ -34,27 +34,27 @@ I created and am developing this back-end test project to test my level of knowl
 
 - [ ] Session
     - [x] Model (Id, Company Id, Duration, Date, Game Id, Users number)
-    - [x] Service
+    - [ ] Service
     - [ ] Controller
-        - [x] Add session
-        - [x] Delete image
+        - [ ] Add session
+        - [ ] Delete image
         - [ ] Get all sessions (with pages)
     - [ ] JWT (exc: login and up)
 
 - [ ] Company
     - [x] Model (Id, Login, Password, CompanyName)
-    - [ ] Service
+    - [x] Service
     - [ ] Controller
-        - [ ] Create
-        - [ ] Authorization
-        - [ ] Change company Name
-        - [ ] Delete company
+        - [x] Create
+        - [x] Authorization
+        - [x] Change company Name
+        - [x] Delete company
         - [ ] Look company session
     - [ ] JWT (exc: login and up)
 
 - [ ] Game
     - [x] Model (Id, GameName, Description, Image, Min and Max numbers of users)
-    - [ ] Service
+    - [x] Service
     - [ ] Controller
         - [ ] Add game
         - [ ] Change game name
