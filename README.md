@@ -32,6 +32,17 @@ I created and am developing this back-end test project to test my level of knowl
         - [x] Delete user
     - [x] JWT (exc: Auth and Reg)
 
+- [ ] Session
+    - [x] Model (Id, Company Id, Duration, Date, Game Id, Users number)
+    - [ ] Service
+    - [ ] Controller
+        - [ ] Add game
+        - [ ] Change game name
+        - [ ] Delete image
+        - [ ] Get all games (with pages)
+        - [ ] Get one game by Id
+    - [ ] JWT (exc: login and up)
+
 - [ ] Company
     - [x] Model (Id, Login, Password, CompanyName)
     - [ ] Service
@@ -44,7 +55,7 @@ I created and am developing this back-end test project to test my level of knowl
     - [ ] JWT (exc: login and up)
 
 - [ ] Game
-    - [ ] Model (Id, GameName, Description, Image, Min and Max numbers of users)
+    - [x] Model (Id, GameName, Description, Image, Min and Max numbers of users)
     - [ ] Service
     - [ ] Controller
         - [ ] Add game
@@ -54,16 +65,6 @@ I created and am developing this back-end test project to test my level of knowl
         - [ ] Get one game by Id
     - [ ] JWT (exc: login and up)
 
-- [ ] Session
-    - [ ] Model (Id, Company Id, Duration, Date, Game Id, Users number)
-    - [ ] Service
-    - [ ] Controller
-        - [ ] Add game
-        - [ ] Change game name
-        - [ ] Delete image
-        - [ ] Get all games (with pages)
-        - [ ] Get one game by Id
-    - [ ] JWT (exc: login and up)
 
 
 ### Commands

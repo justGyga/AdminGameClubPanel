@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 
-export default class User extends Model { }
+export default class User extends Model {}
 
 export const userInitter = (sequelize) => {
     User.init(
@@ -17,6 +17,14 @@ export const userInitter = (sequelize) => {
                 unique: true
             },
             password: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            firstName: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            secondName: {
                 type: DataTypes.STRING,
                 allowNull: false
             }

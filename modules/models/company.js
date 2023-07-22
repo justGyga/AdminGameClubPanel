@@ -1,4 +1,5 @@
 import { DataTypes, Model } from "sequelize";
+import Session from "./session.js";
 
 export default class Company extends Model {}
 
@@ -28,5 +29,7 @@ export const companyInitter = (sequelize) => {
         { sequelize, tableName: "companies" }
     );
 
-    return () => {};
+    return () => {
+        Company.hasMany(Session, { foreignKey: "companyId", onDelete: "CASCADE" });
+    };
 };
