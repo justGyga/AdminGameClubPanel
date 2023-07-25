@@ -11,7 +11,6 @@ I created and am developing this back-end test project to test my level of knowl
 - auto-bind
 
 # Tasks
-## Task 1
 - [x] create a structure: \
     ├── .github             # GitHub folder \
     ├── .vscode             # VScode settings folder \
@@ -23,48 +22,47 @@ I created and am developing this back-end test project to test my level of knowl
     ├── package.json        # Package dependencies \
     └── README.md
 - [x] Create Git Repository
-- [ ] User
-    - [ ] Model (Id, Login, Password)
+- [x] User
+    - [x] Model (Id, Login, Password)
+    - [x] Service
+    - [x] Controller
+        - [x] Registration
+        - [x] Authorization
+        - [x] Change login
+        - [x] Delete user
+    - [x] JWT (exc: Auth and Reg)
+
+- [ ] Session
+    - [x] Model (Id, Company Id, Duration, Date, Game Id, Users number)
     - [ ] Service
     - [ ] Controller
-        - [ ] Login
-        - [ ] Authorization
-        - [ ] Change company Name
-        - [ ] Delete company
+        - [ ] Add session
+        - [ ] Delete image
+        - [ ] Get all sessions (with pages)
     - [ ] JWT (exc: login and up)
 
 - [ ] Company
-    - [ ] Model (Id, Login, Password, CompanyName)
-    - [ ] Service
+    - [x] Model (Id, Login, Password, CompanyName)
+    - [x] Service
     - [ ] Controller
-        - [ ] Create
-        - [ ] Authorization
-        - [ ] Change company Name
-        - [ ] Delete company
+        - [x] Create
+        - [x] Authorization
+        - [x] Change company Name
+        - [x] Delete company
         - [ ] Look company session
     - [ ] JWT (exc: login and up)
 
-- [ ] Game
-    - [ ] Model (Id, GameName, Description, Image, Min and Max numbers of users)
-    - [ ] Service
-    - [ ] Controller
-        - [ ] Add game
-        - [ ] Change game name
-        - [ ] Delete image
-        - [ ] Get all games (with pages)
-        - [ ] Get one game by Id
-    - [ ] JWT (exc: login and up)
+- [x] Game
+    - [x] Model (Id, GameName, Description, Image, Min and Max numbers of users)
+    - [x] Service
+    - [x] Controller
+        - [x] Add game
+        - [x] Change game name
+        - [x] Delete image
+        - [x] Get all games (with pages)
+        - [x] Get one game by Id
+    - [x] JWT
 
-- [ ] Session
-    - [ ] Model (Id, Company Id, Duration, Date, Game Id, Users number)
-    - [ ] Service
-    - [ ] Controller
-        - [ ] Add game
-        - [ ] Change game name
-        - [ ] Delete image
-        - [ ] Get all games (with pages)
-        - [ ] Get one game by Id
-    - [ ] JWT (exc: login and up)
 
 
 ### Commands
