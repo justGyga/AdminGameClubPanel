@@ -12,7 +12,7 @@ export const gameInitter = (sequelize) => {
                 autoIncrement: true,
                 allowNull: false
             },
-            gameName: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true

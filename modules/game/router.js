@@ -1,28 +1,17 @@
 import Router from "express";
+import { validate, CONTEXT } from "../middleware/validator.js";
 import { addDto } from "./dto/add-dto.js";
-import { editDescDto } from "./dto/edit-desc-dto.js";
-import { editNameDto } from "./dto/edit-name-dto.js";
-import { getByIdDto } from "./dto/get-by-id-dto.js";
+import { editDto } from "./dto/edit-dto.js";
+import { idDto } from "./dto/id-dto.js";
+import { TokenGuard } from "../middleware/token-guard.js";
+import GameController from "./controller.js";
 
 const router = new Router();
 
-router.post("/add", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
-router.put("/edit/name", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
-router.put("/edit/description", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
-router.delete("/delete", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
-router.get("/get/all", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
-router.get("/get/:id", function (req, res) {
-    res.status(200).json({ message: "Hello World" });
-});
+router.post("/add", validate(addDto), TokenGuard.verify, GameController.add);
+router.patch("/:id", validate(idDto, CONTEXT.PATH), TokenGuard.verify, validate(editDto), GameController.edit);
+router.get("/all", GameController.getAll);
+router.get("/:id", validate(idDto, CONTEXT.PATH), GameController.getOne);
+router.delete("/:id", validate(idDto, CONTEXT.PATH), TokenGuard.verify, GameController.delete);
 
 export default router;

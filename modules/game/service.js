@@ -1,41 +1,39 @@
 import Game from "../models/game.js";
-import { Op } from "sequelize";
+import { Op, where } from "sequelize";
 import _ from "lodash";
 
 export default class GameService {
     async addGame(doc) {
         if (await Game.count({ where: { name: { [Op.iLike]: doc.name } } })) {
-            return false;
+            return [false, false];
         }
-        const result = await Game.create(doc);
-        return _.omit(result, "createdAt", "updatedAt");
+        if (doc.minNumUsers > doc.maxNumUsers) return [true, false];
+        await Game.create(doc);
+        return _.pick(doc, "name", "description");
     }
 
-    async editName(id, newName) {
+    async editGame(id, data) {
         const gameFindStatus = await Game.findByPk(id);
-        if (!gameFindStatus) return false;
-        gameFindStatus.name = newName;
-        return await gameFindStatus.save();
+        if (!gameFindStatus) return [false, false];
+        try {
+            await gameFindStatus.update(data);
+            return [true, true];
+        } catch (error) {
+            return [true, false];
+        }
     }
 
-    async editDescription(id, newDescription) {
-        const gameFindStatus = await Game.findByPk(id);
-        if (!gameFindStatus) return false;
-        gameFindStatus.description = newDescription;
-        return await gameFindStatus.save();
-    }
-
-    async getAll() {
+    async getAllGames() {
         return await Game.findAll();
     }
 
-    async getOne(id) {
+    async getOneGame(id) {
         const gameFindStatus = await Game.findByPk(id);
         if (!gameFindStatus) return false;
         return gameFindStatus;
     }
 
-    async deleteById(id){
-        Game.destroy({where: {id}})
+    async deleteById(id) {
+        Game.destroy({ where: { id } });
     }
 }

@@ -52,16 +52,16 @@ I created and am developing this back-end test project to test my level of knowl
         - [ ] Look company session
     - [ ] JWT (exc: login and up)
 
-- [ ] Game
+- [x] Game
     - [x] Model (Id, GameName, Description, Image, Min and Max numbers of users)
     - [x] Service
-    - [ ] Controller
-        - [ ] Add game
-        - [ ] Change game name
-        - [ ] Delete image
-        - [ ] Get all games (with pages)
-        - [ ] Get one game by Id
-    - [ ] JWT (exc: login and up)
+    - [x] Controller
+        - [x] Add game
+        - [x] Change game name
+        - [x] Delete image
+        - [x] Get all games (with pages)
+        - [x] Get one game by Id
+    - [x] JWT
 
 
 

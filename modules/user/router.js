@@ -10,7 +10,7 @@ const router = new Router();
 
 router.post("/registration", validate(regDto), UserController.registration);
 router.post("/authorization", validate(authDto), UserController.authorization);
-router.put("/edit", validate(editDto), TokenGuard.verify, UserController.edit);
+router.patch("/edit", validate(editDto), TokenGuard.verify, UserController.edit);
 router.delete("/delete", TokenGuard.verify, UserController.delete);
 
 export default router;

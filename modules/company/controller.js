@@ -38,7 +38,7 @@ class CompanyController {
             if (req.owner.type !== "Company") {
                 return res.status(401).json({ message: "Your data is not belong to any Company" });
             }
-            await this.#companyService.editCompanyName({ companyId: req.owner.id, newLogin: req.body.newLogin, newName: req.body.newName });
+            await this.#companyService.editCompanyName(req.owner.id, { login: req.body.login, name: req.body.name });
             res.status(200).json({ message: "Your data was edit successfully!" });
         } catch (error) {
             console.log(error.message);

@@ -24,22 +24,11 @@ export default class CompanyService {
         return await TokenGuard.generate({ id: companyFindStatus.id, type: "Company" });
     }
 
-    async editCompanyName(doc) {
-        const companyFindStatus = await Company.findByPk(doc.companyId);
-        if (!companyFindStatus) {
-            return false;
-        }
-        if (doc.newLogin) {
-            companyFindStatus.login = doc.newLogin
-        }
-        if (doc.newName) {
-            companyFindStatus.name = doc.newName
-        }
-        return await companyFindStatus.save();
+    async editCompanyName(id, data) {
+        await Company.update(data, { where: { id } });
     }
 
-    async deleteCompany(id){
-        Company.destroy({ where: { id } });
+    async deleteCompany(id) {
+        await Company.destroy({ where: { id } });
     }
-
 }

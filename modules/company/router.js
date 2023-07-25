@@ -10,8 +10,8 @@ const router = new Router();
 
 router.post("/registration", validate(regDto), CompanyController.registration);
 router.post("/authorization", validate(authDto), CompanyController.authorization);
-router.put("/edit", validate(editDto), TokenGuard.verify, CompanyController.edit);
-router.delete("/delete", TokenGuard.verify, CompanyController.delete);
+router.patch("", validate(editDto), TokenGuard.verify, CompanyController.edit);
+router.delete("", TokenGuard.verify, CompanyController.delete);
 router.get("/session", validate(regDto), (req, res) => {
     res.status(200).end();
 });
