@@ -1,6 +1,7 @@
 # It's my test project
 I created and am developing this back-end test project to test my level of knowledge and readiness to work in Leam.
-
+# Premenya region
+In a hypothetical reality, there is a hypothetical game launcher. In my project I implemented part of the functionality of this launcher. My part is an administrative panel designed to manage game clubs.
 # Libraries
 - express
 - sequelize
