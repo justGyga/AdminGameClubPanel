@@ -1,6 +1,6 @@
 import Company from "../models/company.js";
 import argon2 from "argon2";
-import { TokenGuard } from "../middleware/token-guard.js";
+import { TokenGuard } from "../common/middleware/token-guard.js";
 import { Op } from "sequelize";
 import { ACCOUNT_TYPE } from "../common/vars/enums.js";
 

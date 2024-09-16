@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { validate } from "../middleware/validator.js";
+import { validate } from "../common/middleware/validator.js";
 import { regDto } from "./dto/registration-dto.js";
 import { authDto } from "./dto/authorization-dto.js";
 import { editDto } from "./dto/profile-edit-dto.js";
-import { TokenGuard } from "../middleware/token-guard.js";
+import { TokenGuard } from "../common/middleware/token-guard.js";
 import controller from "./controller.js";
 import { checkRole } from "../common/middleware/check-account-access.js";
 
