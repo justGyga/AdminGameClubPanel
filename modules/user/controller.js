@@ -35,9 +35,6 @@ class UserController {
 
     async edit(req, res) {
         try {
-            if (req.owner.type !== "User") {
-                return res.status(401).json({ message: "Your data is not belong to any User" });
-            }
             await this.#userService.editLogin({ userId: req.owner.id, newLogin: req.body.newLogin });
             res.status(200).json({ message: "Login was edited!" });
         } catch (error) {
@@ -47,9 +44,6 @@ class UserController {
     }
 
     async delete(req, res) {
-        if (req.owner.type !== "User") {
-            return res.status(401).json({ message: "Your data not belongs to any User" });
-        }
         await this.#userService.deleteUser(req.owner.id);
         res.status(204).send();
     }

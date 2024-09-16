@@ -35,9 +35,6 @@ class CompanyController {
 
     async edit(req, res) {
         try {
-            if (req.owner.type !== "Company") {
-                return res.status(401).json({ message: "Your data is not belong to any Company" });
-            }
             await this.#companyService.editCompanyName(req.owner.id, { login: req.body.login, name: req.body.name });
             res.status(200).json({ message: "Your data was edit successfully!" });
         } catch (error) {
@@ -47,10 +44,6 @@ class CompanyController {
     }
 
     async delete(req, res) {
-        console.log(req.owner);
-        if (req.owner.type !== "Company") {
-            return res.status(401).json({ message: "Your data is not belong to any Company" });
-        }
         await this.#companyService.deleteCompany(req.owner.id);
         res.status(204).send();
     }

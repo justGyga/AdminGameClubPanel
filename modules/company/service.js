@@ -2,6 +2,7 @@ import Company from "../models/company.js";
 import argon2 from "argon2";
 import { TokenGuard } from "../middleware/token-guard.js";
 import { Op } from "sequelize";
+import { ACCOUNT_TYPE } from "../common/vars/enums.js";
 
 export default class CompanyService {
     async createCompany(doc) {
@@ -21,7 +22,7 @@ export default class CompanyService {
             raw: true
         });
         if (!companyFindStatus || !(await argon2.verify(companyFindStatus.password, doc.password))) return false;
-        return await TokenGuard.generate({ id: companyFindStatus.id, type: "Company" });
+        return await TokenGuard.generate({ id: companyFindStatus.id, type: ACCOUNT_TYPE.COMPANY });
     }
 
     async editCompanyName(id, data) {

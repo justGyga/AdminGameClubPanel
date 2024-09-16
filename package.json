@@ -1,12 +1,12 @@
 {
-  "name": "Backend test project",
+  "name": "Admin game club panel",
   "version": "1.0.0",
-  "description": "Back-end test project",
+  "description": "Back-end pet project",
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start": "node -r dotenv/config .",
-    "dev": "nodemon -r dotenv/config ."
+    "start": "node .",
+    "local": "nodemon -r dotenv/config ."
   },
   "author": "",
   "license": "ISC",

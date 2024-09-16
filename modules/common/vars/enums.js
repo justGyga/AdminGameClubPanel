@@ -1,0 +1,1 @@
+export const ACCOUNT_TYPE = {COMPANY: "company", USER: "user"}
