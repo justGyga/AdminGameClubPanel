@@ -1,26 +1,20 @@
+import { Op } from "sequelize";
 import Game from "../models/game.js";
-import { Op, where } from "sequelize";
-import _ from "lodash";
 
 export default class GameService {
     async addGame(doc) {
         if (await Game.count({ where: { name: { [Op.iLike]: doc.name } } })) {
-            return [false, false];
+            return { conflict: true, nameError: true };
         }
-        if (doc.minNumUsers > doc.maxNumUsers) return [true, false];
-        await Game.create(doc);
-        return _.pick(doc, "name", "description");
+        return { conflict: false, game: await Game.create(doc) };
     }
 
     async editGame(id, data) {
+        // TODO: add owner
         const gameFindStatus = await Game.findByPk(id);
-        if (!gameFindStatus) return [false, false];
-        try {
-            await gameFindStatus.update(data);
-            return [true, true];
-        } catch (error) {
-            return [true, false];
-        }
+        if (!gameFindStatus) return { conflict: true, gameNotFound: true };
+        await gameFindStatus.update(data);
+        return { conflict: false };
     }
 
     async getAllGames() {

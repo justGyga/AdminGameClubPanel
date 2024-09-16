@@ -1,4 +1,4 @@
-import { DataTypes, Model, STRING } from "sequelize";
+import { DataTypes, Model } from "sequelize";
 import Session from "./session.js";
 
 export default class Game extends Model {}
@@ -24,7 +24,7 @@ export const gameInitter = (sequelize) => {
             image: {
                 type: DataTypes.STRING,
                 defaultValue: "D:/_PS_PROJECTS/VDMH/VeryDeepMindHole.png",
-                allowNull:true
+                allowNull: true
             },
             minNumUsers: {
                 type: DataTypes.INTEGER,

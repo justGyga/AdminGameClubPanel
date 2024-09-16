@@ -10,8 +10,8 @@ export default class CompanyService {
             return false;
         }
         doc.password = await argon2.hash(doc.password);
-        await Company.create(doc);
-        return { message: "Company was created!" };
+        const company = await Company.create(doc);
+        return company;
     }
 
     async authCompany(doc) {
